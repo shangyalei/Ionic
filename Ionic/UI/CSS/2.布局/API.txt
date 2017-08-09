@@ -1,0 +1,67 @@
+ionic界面组件列表
+1.列表 : .list
+列表非常适合于手机屏幕上的信息的显示。
+使用.list 定义列表容器， 使用.item 定义列表成员：
+<any class="list">
+<any class="item">...</any>
+<any class="item">...</any>
+<any class="item">...</any>
+<any class="item">...</any>
+</any>
+对列表外观的定制化主要集中在.item 元素上，.list 元素仅有 少数的几个样式定义：
+边框  .list-borderless   边框缩进.list-inset .card  阴影 .card
+
+2. 成员容器: .item
+列表的样式定制主要发生在.item 元素上。
+在.item 元素内， 可以插入文本、徽章、图标、
+图像（头像、缩略图或大图）、按钮等各种 样式的元素：
+同级样式
+      1.边框  .item-borderless
+      2.配色  .item-{color}
+      3.分组  .item-divider
+      4.按钮位置 .item-button-left/right
+      5.图标位置 .item-icon-left/right
+      6.头像位置 .item-avatar-left/right
+      7.缩略图位置 .item-thumbnail-left/right
+      8.图像位置  .item-image
+下级样式
+      文本 h1/h2/h3/h4/h5/h6/p
+      徽章 .barge
+      图标 .icon
+      图像 img
+      按钮 .button
+
+3.item :  嵌入文本
+列表成员中经常需要显示不同规格的文本，比如新闻列表：
+.item 元素可以使用 h1~h6/p 标签插入不同规格的文本。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

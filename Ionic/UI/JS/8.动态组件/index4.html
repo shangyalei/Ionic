@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+    <script src="../lib/js/ionic.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../lib/css/ionic.min.css">
+</head>
+<body  ng-controller="myCtrl">
+	<ion-header-bar class="bar-positive">
+		<h1 class="title">$ionicPopover</h1>
+		<a class="button" ng-click="openPopover($event);">帮助</a>
+	</ion-header-bar>
+	<ion-content direction="xy">
+		$ionicPopover
+	</ion-content>
+	<script id="ez-popover.html" type="text/ng-template">
+		<ion-popover-view class="calm-bg light padding">
+			<p>这里应该有些帮助信息....</p>
+		</ion-popover-view>
+	</script>
+</body>
+</html>
+<script>
+
+angular.module("myApp", ["ionic"])
+.controller("myCtrl", function($scope, $ionicPopover) {
+
+	$ionicPopover.fromTemplateUrl("ez-popover.html", {
+		scope: $scope
+	})
+	.then(function(popover){
+		$scope.popover = popover;
+	})
+	$scope.openPopover = function($event) {
+		$scope.popover.show($event);
+	};
+	$scope.closePopover = function() {
+		$scope.popover.hide();
+	};
+	//销毁事件回调处理：清理popover对象
+	$scope.$on("$destroy", function() {
+		$scope.popover.remove();
+	});
+	// 隐藏事件回调处理
+	$scope.$on("popover.hidden", function() {
+		// Execute action
+	});
+	//删除事件回调处理
+	$scope.$on("popover.removed", function() {
+		// Execute action
+	});
+});
+
+
+</script>

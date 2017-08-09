@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+    <script src="../../../lib/js/ionic.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../lib/css/ionic.min.css">
+</head>
+<body  ng-controller="myCtrl">
+	<ion-header-bar class="bar-positive">
+		<h1 class="title">$ionicBackdrop</h1>
+	</ion-header-bar>
+    <ion-content>
+        <div class="ezpop has-header padding">
+            <a class="button button-block button-calm" ng-click="retain();">retain</a>
+            <a class="button button-block button-calm" ng-click="release();">release</a>
+        </div>
+
+    </ion-content>
+
+    <ion-footer-bar class="bar-positive">
+		<h1 class="title">背景幕锁：{{locks}}</h1>
+    </ion-footer-bar>
+</body>
+</html>
+<script>
+angular.module("myApp",["ionic"])
+.controller("myCtrl",function($scope, $ionicBackdrop, $timeout,$interval) {
+	$scope.locks = 0;
+	//保持背景幕
+	$scope.retain = function() {
+		$ionicBackdrop.retain();
+		$scope.locks++;
+	};
+	//释放背景幕
+	$scope.release = function() {
+		$ionicBackdrop.release();
+		$scope.locks > 0 ? $scope.locks-- : 0;
+	};
+
+    $interval(function(){
+        if($scope.locks > 0){
+            $ionicBackdrop.release();
+
+             $scope.locks--;
+        }
+
+    },2000)
+});
+
+
+</script>

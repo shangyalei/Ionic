@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+	<script src="../../../lib/js/ionic.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../lib/css/ionic.min.css">
+
+</head>
+<body  ng-controller="myCtrl">
+	<ion-header-bar class="bar-positive">
+		<h1 class="title">ion-list</h1>
+	</ion-header-bar>
+	<ion-content>
+		<ion-list can-swipe="true">
+			<ion-item ng-repeat="item in items">
+			{{item}}
+                <ion-option-button class="button-calm icon ion-edit"></ion-option-button>
+                <ion-option-button class="button-energized icon ion-share"></ion-option-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</body>
+</html>
+
+<script>
+angular.module("myApp",["ionic"])
+.controller("myCtrl",function($scope){
+	$scope.items = [];
+	for(var i=0;i<10;i++) 
+		$scope.items.push(["item list ",i+1].join(""));
+});
+
+</script>

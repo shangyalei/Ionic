@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="ezApp">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+    <script src="../../../lib/js/ionic.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../lib/css/ionic.min.css">
+</head>
+<body  ng-controller="myCtrl">
+	<ion-header-bar align-title="left" class="bar-positive">
+		<h1 class="title">$ionicListDelegate</h1>
+		<a class="button" ng-click="close();">关闭选项</a>
+	</ion-header-bar>
+	<ion-content>
+		<ion-list>
+			<ion-item ng-repeat="item in items">
+				{{item}}!
+				<ion-option-button class="button-calm icon ion-share"></ion-option-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</body>
+</html>
+
+
+<script>
+angular.module("ezApp",["ionic"])
+.controller("myCtrl",["$scope","$ionicListDelegate",function($scope,$ionicListDelegate){
+	$scope.items = ["Chinese","English","Russian","Japanese"];
+	var flag = false;
+	$scope.close = function(){
+		$ionicListDelegate.closeOptionButtons();
+	};
+}]);
+
+</script>

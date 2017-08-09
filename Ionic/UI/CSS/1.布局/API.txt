@@ -1,0 +1,163 @@
+布局模式
+
+1.基本布局：标题/header、内容/content 和页脚/footer。
+
+标题区总是位于屏幕顶部，页脚区总是位于屏幕底部，而内容区占据剩余的空间。
+ionic 使用以下 CSS 类
+声明对应区域:
+  .bar.bar- - header - 声明元素为标题区
+  .bar.bar- - footer - 声明元素为底部
+  .content . . scroll- - content- 声明元素为内容区
+
+2.bar  位置以及颜详解
+样式.bar 将元素声明为屏幕上绝对定位的块状区域，具有 固定的高度（44px）：
+1).使用方式：
+    1. <any class="bar">...</any>
+2).bar的位置
+    ionic 使用以下样式定义条块的位置：
+      .bar- - header - 置顶
+      .bar- - subheader - header 之下置顶
+      .bar- - footer - 置底
+      .bar- - subfooter - footer 之上置底
+
+3.bar嵌入子元素
+在 ionic 中，有三种 .bar 子元素的样式是预定义的：
+  标题文字 - 对包含标题文字的元素应用.title 样式，通常使用 h1 元素：
+<any class="bar">
+<any class="title">...</any>
+</any>
+
+  按钮 - 对用作按钮的元素，应用.button 样式，通常使用 button 或 a 元素作为按钮。
+注意按钮将使用.bar 的配色方案：
+<any class="bar">
+<any class="button">...</any>
+</any>
+
+  工具栏 - 工具栏包含一组按钮。对用作工具栏的元素，应用 .button-bar 样式，
+通常使用 div元素作为工具栏：
+<any class="bar">
+<any class="button-bar">...</any>
+</any>
+
+4.bar:嵌入input
+一种常见的 UI 模式是在标题栏中嵌入搜索栏，比如美团：
+在.bar 元素中嵌入 input 元素，需要注意两点：
+1. 在条块元素上应用 .item-input-inset 样式
+2. 将 input 包裹在应用 .item-input-wrapper 样式的元素内
+这是因为，在 ionic 的实现中，.bar 中的.input 样式定义如下：
+.bar.item-input-inset{
+    .item-input-wrapper{
+        .input{
+                ...
+        }
+    }
+}
+
+5.内容：.content  和 .scroll-content
+ionic 预定义了两个内容容器样式：
+  .content – 相对定位
+  .scroll-content - 绝对定位，内容元素占满整个屏幕
+  这两种样式都可以使用以下样式进一步确定位置及范围：
+    .has-header
+    .has-subheader
+    .has-footer
+    .has-subfooter
+    .has-tabs
+    .has-tabs-top
+
+6.九大颜色类
+    1.bar-light       白色
+    2.bar-stable      灰色
+    3.bar-positive    蓝色
+    4.bar-calm        浅蓝色
+    5.bar-balanced    绿色
+    6.bar-energized   黄色
+    7.bar-assertive   红色
+    8.bar-royal       紫色
+    9.bar-dark        黑色
+
+    边框
+    1.light-border
+    2.stable-border
+    3.positive-border
+    4.calm-border
+    5.balanced-border
+    6.energized-border
+    7.assertive-border
+    8.royal-border
+    9.dark-border
+    背景
+    1.light-bg
+    2.stable-bg
+    3.positive-bg
+    4.calm-bg
+    5.balanced-bg
+    6.energized-bg
+    7.assertive-bg
+    8.royal-bg
+    9.dark-bg
+    字体
+    1.light
+    2.stable
+    3.positive
+    4.calm
+    5.balanced
+    6.energized
+    7.assertive
+    8.royal
+    9.dark
+
+7.ionic中的图标
+ionic 使用 s ionicons 图标样式库。ionicons 采用了 TrueType 字体实现图标样式，
+有超过500 个图标可供选择。
+使用图标很简单，在元素上声明以下两个 CSS 类即可：
+  .icon - 将元素声明为图标
+  .ion-{icon-name} - 声明要使用的具体图标
+通常使用 i 元素定义图标，例如下面声明了元素显示 ion-home 图标：
+<i class="icon ion-home"></i>
+要了解有哪些图标及具体名称，需要访问 ionics.com。 点击某个图标即可查看其 CSS 类名
+称。
+可以在任何元素中插入图标，使用元素的  font-size 样式指定图标的大小：
+<any style="font-size:100px;">
+<i class="icon ion-search"></i>
+</any>
+ionic的内边距
+ionic 定义了常用的内边距样式：
+.padding/.padding-top/.padding-right/.padding-bottom/.padding-left
+样式名很直白，边距统一为 10px 。可以在任何元素上应用这些样式。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

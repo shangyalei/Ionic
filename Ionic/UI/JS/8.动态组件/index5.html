@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+    <script src="../../../lib/js/ionic.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../lib/css/ionic.min.css">
+</head>
+<body  ng-controller="myCtrl">
+	<ion-header-bar class="bar-positive">
+		<h1 class="title">$ionicLoading</h1>
+		<a class="button icon ion-refresh" ng-click="load();">载入</a>
+	</ion-header-bar>
+	<ion-content>
+		<ion-list>
+			<ion-item collection-repeat="item in items">{{item}}</ion-item>
+		</ion-list>
+	</ion-content>
+</body>
+</html>
+<script>
+angular.module("myApp", ["ionic"])
+.controller("myCtrl", function($scope, $ionicLoading,$timeout) {
+	$scope.items = [];
+	var idx = 0;
+	$scope.load = function() {
+		//显示载入指示器
+		$ionicLoading.show({
+			template: "正在载入数据，请稍后..."
+		});
+		//延时2000ms来模拟载入的耗时行为
+		$timeout(function(){
+			for(var i=0;i<10;i++,idx++) $scope.items.unshift("item " + idx);
+			//隐藏载入指示器
+			$ionicLoading.hide();
+		},2000);
+	};
+});
+
+
+</script>

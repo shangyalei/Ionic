@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+    <script src="../lib/js/ionic.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../lib/css/ionic.min.css">
+</head>
+<body  ng-controller="myCtrl">
+	<ion-header-bar class="bar-positive">
+		<h1 class="title">collection-repeat</h1>
+	</ion-header-bar>
+	<ion-content>
+		<ion-list>
+			<ion-item collection-repeat="item in items">
+			{{item}}
+			<ion-option-button class="button-positive">...</ion-option-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+    <script type="text/javascript">
+angular.module("myApp",["ionic"])
+.controller("myCtrl",function($scope){
+	$scope.items = [];
+	for(var i=0;i<5000;i++)
+		$scope.items.push(["item",i+1].join(""));
+});
+
+
+</script>
+</body>
+</html>
+

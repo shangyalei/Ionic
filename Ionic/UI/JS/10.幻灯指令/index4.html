@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="ezApp">
+<head>
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+    <script src="../../../lib/js/ionic.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../lib/css/ionic.min.css">
+    <style type="text/css">
+        ion-slide{
+            height:600px;
+            text-align:center;
+        }
+
+        ion-slide img{
+            height:500px;
+
+        }
+
+    </style>
+</head>
+<body ng-controller="ezCtrl">
+	<ion-header-bar class="bar-positive">
+		<a class="button" ng-click="go_next();">next!</a>
+		<h1 class="title">$ionicSlideBoxDelegate</h1>
+	</ion-header-bar>
+	<ion-content>
+        <ion-slide-box does-continue="true" show-pager="true">
+            <ion-slide>
+                <img src="img/01.png">
+            </ion-slide>
+            <ion-slide>
+                <img src="img/02.png">
+            </ion-slide>
+            <ion-slide>
+                <img src="img/03.png">
+            </ion-slide>
+            <ion-slide>
+                <img src="img/04.png">
+            </ion-slide>
+        </ion-slide-box>
+	</ion-content>
+</body>
+</html>
+<script>
+
+angular.module("ezApp",["ionic"])
+.controller("ezCtrl",function($scope,$ionicSlideBoxDelegate){
+	$scope.go_next = function(index){
+		$ionicSlideBoxDelegate.next();
+	};
+})
+
+</script>

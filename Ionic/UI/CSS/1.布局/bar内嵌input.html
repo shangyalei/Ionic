@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="../lib/css/ionic.min.css">
+</head>
+<body class="light-bg">
+
+<!--
+在.bar 元素中嵌入 input 元素，需要注意两点：
+1. 在条块元素上应用 .item-input-inset 样式
+2. 将 input 包裹在应用 .item-input-wrapper 样式的元素内
+-->
+
+<div class="bar bar-header bar-energized item-input-inset">
+    <a class="button button-clear icon-right ion-android-arrow-dropdown ">北京</a>
+    <label class="item-input-wrapper">
+        <input class="light-bg" type="text" placeholder="请输入">
+    </label>
+</div>
+<div class="bar bar-footer bar-dark"></div>
+
+
+</body>
+</html>

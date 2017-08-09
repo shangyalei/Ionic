@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+    <script src="../lib/js/ionic.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../lib/css/ionic.min.css">
+</head>
+<body  ng-controller="myCtrl">
+	<ion-header-bar class="bar-positive">
+		<h1 class="title">$ionicActionSheet</h1>
+		<a class="button" ng-click="show();">操作</a>
+	</ion-header-bar>
+	<ion-content padding="true">
+		<p>那师父正按辔徐观，又见悟空兄弟方到。悟净道：“师父不曾跌下马来么？”长老骂道：“悟空这泼猴，他把马儿惊了，早是我还骑得住哩！”行者陪笑道：“师父莫骂我，都是猪八戒说马行迟，故此着他快些。”那呆子因赶马，走急了些儿，喘气嘘嘘，口里唧唧哝哝的闹道：“罢了，罢了！见自肚别腰松，担子沉重，挑不上来，又弄我奔奔波波的赶马！”长老道：“徒弟啊，你且看那壁厢，有一座庄院，我们却好借宿去也。”行者闻言，急抬头举目而看，果见那半空中庆云笼罩，瑞霭遮盈，情知定是佛仙点化，他却不敢泄漏天机，只道：“好，好，好！我们借宿去来。”</p>
+		<p>长老连忙下马，见一座门楼，乃是垂莲象鼻，画栋雕梁。沙僧歇了担子，八戒牵了马匹道：“这个人家，是过当的富实之家。”行者就要进去，三藏道：“不可，你我出家人，各自避些嫌疑，切莫擅入。且自等他有人出来，以礼求宿，方可。”八戒拴了马，斜倚墙根之下。三藏坐在石鼓上。行者、沙僧坐在台基边。久无人出，行者性急，跳起身入门里看处，原来有向南的三间大厅，帘栊高控。屏门上，挂一轴寿山福海的横披画。两边金漆柱上，贴着一幅大红纸的春联，上写着：“丝飘弱柳平桥晚，雪点香梅小院春。”正中间，设一张退光黑漆的香几，几上放一个古铜兽炉。上有六张交椅，两山头挂着四季吊屏。</p>	</ion-content>
+</body>
+</html>
+<script>
+angular.module("myApp", ["ionic"])
+.controller("myCtrl",function($scope, $ionicActionSheet, $timeout) {
+
+	// Triggered on a button click, or some other target
+	$scope.show = function() {
+
+		// Show the action sheet
+		var hideSheet= $ionicActionSheet.show({
+            cancelOnStateChange:true,
+            cssClass:'action_s',
+			titleText: "操作当前文章",
+			buttons: [
+				{ text: "<b>分享</b>文章" },
+				{ text: "移动到..." }
+			],
+			buttonClicked: function(index) {
+                    console.log('操作了第'+index+'个文章');
+                    return true;
+			},
+			cancelText: "取消",
+			cancel: function() {
+			  // add cancel code..
+
+                console.log('执行了取消操作');
+                return true;
+			},
+			destructiveText: "删除",
+			destructiveButtonClicked:function(){
+                console.log('执行了删除操作');
+                return true;
+
+			}
+		});
+
+		// For example's sake, hide the sheet after two seconds
+		$timeout(function() {
+			hideSheet();
+		}, 2000);
+
+	};
+
+
+
+
+
+
+
+});
+
+</script>

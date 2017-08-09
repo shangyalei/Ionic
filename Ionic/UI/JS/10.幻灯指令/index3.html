@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+    <script src="../../../lib/js/ionic.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../lib/css/ionic.min.css">
+    <style type="text/css">
+        ion-slide{
+            height:600px;
+            text-align:center;
+        }
+
+        ion-slide img{
+            height:500px;
+        }
+
+    </style>
+</head>
+<body ng-controller="myCtrl">
+	<ion-header-bar class="bar-positive">
+		<h1 class="title">active : {{index}}</h1>
+	</ion-header-bar>
+	<ion-slide-box does-continue="true" show-pager="true" auto-play="true" on-slide-changed="go_changed(index)"  active-slide="index" pager-click="go(index)">
+        <ion-slide>
+            <img src="img/01.png">
+        </ion-slide>
+        <ion-slide>
+            <img src="img/02.png">
+        </ion-slide>
+        <ion-slide>
+            <img src="img/03.png">
+        </ion-slide>
+        <ion-slide>
+            <img src="img/04.png">
+        </ion-slide>
+	</ion-slide-box>
+</body>
+</html>
+<script type="text/javascript">
+angular.module("myApp",["ionic"])
+.controller("myCtrl",function($scope,$ionicSlideBoxDelegate){
+	$scope.index = 0;
+	$scope.go = function(index){
+		$ionicSlideBoxDelegate.slide(index);
+	}
+    $scope.go_changed=function(index){
+        console.log(index)
+    }
+});
+
+</script>

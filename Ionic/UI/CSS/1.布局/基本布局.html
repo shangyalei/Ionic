@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="../lib/css/ionic.min.css">
+</head>
+<body>
+<!--
+基本布局：标题/header、内容/content 和页脚/footer。
+标题区总是位于屏幕顶部，页脚区总是位于屏幕底部，
+而内容区占据剩余的空间。
+ionic 使用以下 CSS 类声明对应区域:
+  .bar.bar- header - 声明元素为标题区
+  .bar.bar- footer - 声明元素为底部
+  .content. scroll- content- 声明元素为内容区
+样式.bar 将元素声明为屏幕上绝对定位的块状区域，具有 固定的高度（44px）：
+
+ionic 使用以下样式定义条块的位置：
+  .bar-header - 置顶
+  .bar-subheader - header 之下置顶
+  .bar-footer - 置底
+  .bar-subfooter - footer 之上置底
+
+.bar :  嵌入子元素
+在 ionic 中，有三种 .bar 子元素的样式是预定义的：
+  标题文字 - 对包含标题文字的元素应用e .title 样式，通常使用 h1 元素：
+  按钮 - 对用作按钮的元素，应用n .button 样式，通常使用 button 或 a 元素作为按钮。
+注意按钮将使用.bar 的配色方案：
+  工具栏 - 工具栏包含一组按钮。对用作工具栏的元素，应用 .button- bar 样式，
+通常 使用 div元素作为工具栏：
+
+
+ionic 预定义了两个内容容器样式：
+  .content – 相对定位
+  .scroll- - content - 绝对定位，内容元素占满整个屏幕
+  这两种样式都可以使用以下样式进一步确定位置及范围：
+    .has-header
+    .has-subheader
+    .has-footer
+    .has-subfooter
+    .has-tabs
+    .has-tabs-top
+
+
+-->
+
+<div class="bar bar-header bar-dark">
+    <h1 class="title">Header</h1>
+</div>
+<div class="scroll-content has-header">
+    <h1 class="title">Content</h1>
+</div>
+<div class="bar bar-footer bar-calm">
+    <h1 class="title">Footer</h1>
+</div>
+</body>
+</html>
